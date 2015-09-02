@@ -1,0 +1,28 @@
+{
+  "name": "Deric",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ddbunc2/music-history-angular",
+  "authors": [
+    "Deric-Bunch <ddbunc2@gmail.com>"
+  ],
+  "description": "Pinterest",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.4",
+    "angular-route": "~1.4.4",
+    "angularfire": "~1.1.2",
+    "bootstrap": "~3.3.5",
+    "firebase": "~2.2.9",
+    "jquery": "~2.1.4",
+    "lodash": "~3.10.1",
+    "q": "1.0.1",
+    "angular-filter": "~0.5.5"
+  }
+}

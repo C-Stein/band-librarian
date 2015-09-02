@@ -1,0 +1,132 @@
+body {
+  font-family: "helvetica neue", sans-serif;
+  padding: 8px;
+  background-color: #e9e9e9;
+}
+
+#wrapper {
+  width: 100%;
+  // max-width: 1100px;
+  // min-width: 800px;
+  margin: 50px auto;
+}
+
+
+.modal-header{
+  background-color: lightgrey;
+  opacity: 0.7;
+}
+
+.modal-footer {
+  background-color: lightgrey;
+  opacity: 0.7;
+}
+
+.modal-body {
+  text-align: center;
+} 
+
+.modal img {
+  max-width: 500px;
+}
+  
+#columns {
+  -webkit-column-count: 3;
+  -webkit-column-gap: 10px;
+  -webkit-column-fill: auto;
+  -moz-column-count: 3;
+  -moz-column-gap: 10px;
+  -moz-column-fill: auto;
+  column-count: 3;
+  column-gap: 15px;
+  column-fill: auto;
+}
+
+.pin {
+  display: inline-block;
+  background: #FEFEFE;
+  border: 1px solid #FAFAFA;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  margin: 0 2px 15px;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
+  padding: 15px;
+  padding-bottom: 5px;
+  background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
+  opacity: 1;
+  
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+.pin img {
+  width: 236px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 5px;
+}
+
+.pin p {
+  font: 12px/18px Arial, sans-serif;
+  color: #333;
+  margin: 0;
+}
+
+@media (min-width: 960px) {
+  #columns {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+  }
+}
+
+@media (min-width: 1100px) {
+  #columns {
+    -webkit-column-count: 5;
+    -moz-column-count: 5;
+    column-count: 5;
+  }
+}
+
+img:hover {
+  opacity: 0.4;
+}
+
+.modal {
+    max-width: 800px;
+
+}
+
+.modal img {
+  max-width: 500px;
+}
+
+
+h1 {
+  text-align: center;
+}
+
+.pinIt, #delPin {
+  margin-right: 5px;
+  color: white;
+  background-color: red;
+  font-family:'Brush Script MT', cursive;
+  font-size: 16px;
+}
+
+
+#myPin, #addPin, #submit {
+  color: white;
+  background-color: red;
+  margin-right: 15px;
+  font-family:'Brush Script MT', cursive;
+  font-size: 18px;
+}
+
+input[type="text"] {
+  width: 400px;
+}
