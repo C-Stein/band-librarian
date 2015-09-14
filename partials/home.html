@@ -1,11 +1,13 @@
-<h4>Search by Title, Composer, Arranger, or Publisher:</h4>
-<input type="text" ng-model="searchPieces" placeholder="Search here" id="searchBox"/><br>
+<div class="search">  
+  <h4>Search by Title, Composer, Arranger, or Publisher:</h4>
+  <input type="text" ng-model="searchPieces" placeholder="Search here" id="searchBox"/>
+</div>
 <br>
 <div id="wrapper">
   <div id="columns">
     <div class="piece" ng-repeat="piece in pieces  | filter: searchPieces">
       <div class="homeEntry">
-        <h4>{{piece.title}}</h4>
+        <h3>{{piece.title}}</h3>
         <h5>{{piece.composer}}</h5>
         <!-- Get this filter thing to work to show attributes-->
         <div ng repeat= "attributes in piece | filter: true">

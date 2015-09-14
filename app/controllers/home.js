@@ -2,7 +2,12 @@ app.controller("HomeCtrl", ["$scope", "$firebaseArray", "$firebaseAuth", "$locat
   function($scope, $firebaseArray, $firebaseAuth, $location, uid) {
   var ref = new Firebase("https://band-library.firebaseio.com/");
   var auth = $firebaseAuth(ref);
-  $scope.uid = ref.getAuth().uid
+  var authData = ref.getAuth();
+  $scope.uid = authData.uid;
+
+  console.log("ref.getAuth()", ref.getAuth());
+  console.log("ref", ref);
+  console.log("firebaseAuth(ref)", $firebaseAuth(ref));
 
   if (!!uid.isLoggedIn() && uid.isLoggedIn() !== null) {
     runPage();
@@ -17,6 +22,8 @@ app.controller("HomeCtrl", ["$scope", "$firebaseArray", "$firebaseAuth", "$locat
     });    
   }
 
+  runPage();
+
 
   function runPage() {
     console.log($scope.uid);
@@ -24,28 +31,28 @@ app.controller("HomeCtrl", ["$scope", "$firebaseArray", "$firebaseAuth", "$locat
     $scope.pieces = new $firebaseArray(ref.child('pieces'));
 
 
-    $scope.addToUser = function(pin) {
-      console.log(pin);
-      $scope.pins.$add({
-        "img": pin.img, 
-        "tag": pin.tag,
-        "title": pin.title,
-        "url": pin.url,
-        "uid": $scope.uid
-      });
-      $location.url("/personal");
-    }; 
+    // $scope.addToUser = function(pin) {
+    //   console.log(pin);
+    //   $scope.pins.$add({
+    //     "img": pin.img, 
+    //     "tag": pin.tag,
+    //     "title": pin.title,
+    //     "url": pin.url,
+    //     "uid": $scope.uid
+    //   });
+    //   $location.url("/personal");
+    // }; 
   
-    $scope.addFromModal = function(pin) {
-      console.log(pin);
-      $scope.pins.$add({
-        "img": pin.img, 
-        "tag": pin.tag,
-        "title": pin.title,
-        "url": pin.url,
-        "uid": $scope.uid
-      });
-    }; 
+    // $scope.addFromModal = function(pin) {
+    //   console.log(pin);
+    //   $scope.pins.$add({
+    //     "img": pin.img, 
+    //     "tag": pin.tag,
+    //     "title": pin.title,
+    //     "url": pin.url,
+    //     "uid": $scope.uid
+    //   });
+    // }; 
 
   }
 }]);

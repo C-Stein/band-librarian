@@ -1,6 +1,6 @@
 app.factory("uid", function() {
   var uid;
-  var ref = new Firebase("https://pinterest-project.firebaseio.com/");
+  var ref = new Firebase("https://band-library.firebaseio.com/");
 
 
   return {

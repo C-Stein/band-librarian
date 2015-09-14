@@ -1,0 +1,22 @@
+h1 {
+  text-align: center;
+}
+
+.menu {
+  margin: 5px auto;
+}
+
+.nav, .search {
+  margin: 0 25%;
+}
+
+.homeEntry {
+  width: 80%;
+  margin: 10px 8%;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding: 2px 10px;
+    h3, h5 {
+      display: inline;
+    }
+}

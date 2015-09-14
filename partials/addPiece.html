@@ -1,5 +1,7 @@
-<div>
-   <h3><em> Add Piece: </em></h3>
+<div class="container">
+  <div class="row">
+    <h3><em> Add Piece: </em></h3>
+    <div class="col-sm-3">
       <input type="text" ng-model="newPiece.title" placeholder="Title"></input><br><br>
       <input type="text" ng-model="newPiece.composer" placeholder="Composer"></input><br><br>
       <input type="text" ng-model="newPiece.arranger" placeholder="Arranger"></input><br><br>
@@ -7,4 +9,17 @@
       <input type="text" ng-model="newPiece.publisher" placeholder="Publisher"></input><br><br>
       <input type="text" ng-model="newPiece.grade" placeholder="Grade"></input><br><br>
       <button id="submit" class="btn btn-default btn-lg" ng-click="addPiece()">Submit</button>
+    </div>
+    <div class="col-sm-3">
+      <input type="checkbox" name="Attributes" value="technical" ng-model="attribute.technical"> Technical
+      <br>
+      <input type="checkbox" name="Attributes" value="lyrical" ng-model="attribute.lyrical"> Lyrical
+      <br>
+      <input type="checkbox" name="Attributes" value="hasSolos" ng-model="attribute.hasSolos"> Has Solos
+      <br>
+      <input type="checkbox" name="Attributes" value="largePercussion" ng-model="attribute.largePercussion"> Large Percussion Section Needed
+      <br>
+      <input type="checkbox" name="Attributes" value="smallPercussion" ng-model="attribute.smallPercussion"> Small/ No Percussion Section Needed
+    </div>
+  </div>  
 </div>
