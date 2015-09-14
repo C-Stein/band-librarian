@@ -8,12 +8,17 @@
 </head>
 
 
-<body ng-app="">
+<body ng-app="BandLib">
 
   <h1>Band Librarian</h1>
-
-  
-
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="/#/searchPiece">Advanced Search</a></li>
+        <li><a href="/#/addPiece">Add Piece</a></li>
+        <li><a href="/#/about">About Band Librarian</a></li>
+      </ul>
+  </div>
   <div ng-view></div>
 
 
@@ -28,6 +33,9 @@
   <script src="/lib/bower_components/angularfire/dist/angularfire.min.js"></script>
   <script src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="app/app.js"></script>
+  <script src="app/factories/uid.js"></script>
+  <script src="app/controllers/home.js"></script>
+  <script src="app/controllers/addPiece.js"></script>
 
 </body>
 </html>
