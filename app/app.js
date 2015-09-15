@@ -10,6 +10,9 @@ app.config(['$routeProvider',
       }).when ('/addPiece', {
         templateUrl: 'partials/addPiece.html',
         controller: 'addPieceCtrl'
+      }).when ('/searchPiece', {
+        templateUrl: 'partials/searchPiece.html',
+        controller: 'SearchCtrl'
       }).when ('/about', {
         templateUrl: 'partials/about.html',
         controller: 'AboutCtrl'

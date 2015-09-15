@@ -1,5 +1,5 @@
-app.controller("HomeCtrl", ["$scope", "$firebaseArray", "$firebaseAuth", "$location", "uid",
-  function($scope, $firebaseArray, $firebaseAuth, $location, uid) {
+app.controller("HomeCtrl", ["$scope", "$firebaseArray", "$firebaseAuth", "uid",
+  function($scope, $firebaseArray, $firebaseAuth, uid) {
   var ref = new Firebase("https://band-library.firebaseio.com/");
   var auth = $firebaseAuth(ref);
   var authData = ref.getAuth();
@@ -28,31 +28,7 @@ app.controller("HomeCtrl", ["$scope", "$firebaseArray", "$firebaseAuth", "$locat
   function runPage() {
     console.log($scope.uid);
     $scope.searchCategories = "";      
-    $scope.pieces = new $firebaseArray(ref.child('pieces'));
-
-
-    // $scope.addToUser = function(pin) {
-    //   console.log(pin);
-    //   $scope.pins.$add({
-    //     "img": pin.img, 
-    //     "tag": pin.tag,
-    //     "title": pin.title,
-    //     "url": pin.url,
-    //     "uid": $scope.uid
-    //   });
-    //   $location.url("/personal");
-    // }; 
-  
-    // $scope.addFromModal = function(pin) {
-    //   console.log(pin);
-    //   $scope.pins.$add({
-    //     "img": pin.img, 
-    //     "tag": pin.tag,
-    //     "title": pin.title,
-    //     "url": pin.url,
-    //     "uid": $scope.uid
-    //   });
-    // }; 
+    $scope.pieces = new $firebaseArray(ref.child('pieces')); 
 
   }
 }]);

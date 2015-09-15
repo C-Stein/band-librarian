@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <h3><em> Add Piece: </em></h3>
-    <div class="col-sm-3">
+    <h3><em> Add Piece to the Band Librarian Database: </em></h3>
+    <div class="col-sm-3 col-sm-offset-2">
       <input type="text" ng-model="newPiece.title" placeholder="Title"></input><br><br>
       <input type="text" ng-model="newPiece.composer" placeholder="Composer"></input><br><br>
       <input type="text" ng-model="newPiece.arranger" placeholder="Arranger"></input><br><br>
@@ -10,7 +10,7 @@
       <input type="text" ng-model="newPiece.grade" placeholder="Grade"></input><br><br>
       <button id="submit" class="btn btn-default btn-lg" ng-click="addPiece()">Submit</button>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-3 col-sm-offset-1">
       <input type="checkbox" name="Attributes" value="technical" ng-model="attribute.technical"> Technical
       <br>
       <input type="checkbox" name="Attributes" value="lyrical" ng-model="attribute.lyrical"> Lyrical
