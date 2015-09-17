@@ -7,12 +7,10 @@
   <div id="columns">
     <div class="piece" ng-repeat="piece in pieces  | filter: searchPieces | orderBy: 'title'">
       <div class="homeEntry">
-        <h3><a  href="" data-toggle="modal" data-target="#{{$index}}">{{piece.title}}</a></h3>
+        <a  href="" data-toggle="modal" data-target="#" + {{$index}}><h3>{{piece.title}}</h3></a>
         <h5>{{piece.composer}}</h5>
         <!-- Get this filter thing to work to show attributes-->
-        <div ng repeat= "attribute in attributes in piece | filter:{attribute:'true}">
-          <p>{{piece.attributes}}</p>
-        </div>
+
       </div>
     </div>
   </div>
@@ -26,4 +24,15 @@
           </div>
         </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
      

@@ -20,3 +20,15 @@ h1 {
       display: inline;
     }
 }
+
+.mouse {
+  position: absolute;
+  z-index: -1;
+  margin-left: 10%;
+}
+
+.reverseMouse {
+  position: absolute;
+  z-index: -1;
+  margin-left: 80%;
+}

@@ -16,13 +16,14 @@
   ],
   "dependencies": {
     "angular": "~1.4.4",
+    "angular-bootstrap": "~0.13.4",
+    "angular-filter": "~0.5.5",
     "angular-route": "~1.4.4",
     "angularfire": "~1.1.2",
     "bootstrap": "~3.3.5",
     "firebase": "~2.2.9",
     "jquery": "~2.1.4",
     "lodash": "~3.10.1",
-    "q": "1.0.1",
-    "angular-filter": "~0.5.5"
+    "q": "1.0.1"
   }
 }
