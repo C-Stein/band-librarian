@@ -26,13 +26,11 @@ $scope.attribute = {
         "year": $scope.newPiece.year || null,
         "publisher": $scope.newPiece.publisher || null,
         "grade": $scope.newPiece.grade || null,
-        "attributes": {
-          "technical": $scope.attribute.technical,
-          "lyrical": $scope.attribute.lyrical,
-          "hasSolos": $scope.attribute.hasSolos,
-          "largePercussion": $scope.attribute.largePercussion,
-          "smallPercussion": $scope.attribute.smallPercussion
-        },
+        "technical": $scope.newPiece.technical || false,
+        "lyrical": $scope.newPiece.lyrical || false ,
+        "hasSolos": $scope.newPiece.hasSolos || false,
+        "largePercussion": $scope.newPiece.largePercussion || false,
+        "smallPercussion": $scope.newPiece.smallPercussion || false,
         "uid": $scope.uid
     });
     console.log($scope.newPiece);

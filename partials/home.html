@@ -5,16 +5,25 @@
 <br>
 <div id="wrapper">
   <div id="columns">
-    <div class="piece" ng-repeat="piece in pieces  | filter: searchPieces">
+    <div class="piece" ng-repeat="piece in pieces  | filter: searchPieces | orderBy: 'title'">
       <div class="homeEntry">
-        <h3>{{piece.title}}</h3>
+        <h3><a  href="" data-toggle="modal" data-target="#{{$index}}">{{piece.title}}</a></h3>
         <h5>{{piece.composer}}</h5>
         <!-- Get this filter thing to work to show attributes-->
-        <div ng repeat= "attributes in piece | filter: true">
+        <div ng repeat= "attribute in attributes in piece | filter:{attribute:'true}">
           <p>{{piece.attributes}}</p>
         </div>
       </div>
     </div>
   </div>
+</div>
+<div class="modal fade" id={{$index}} tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <h3>{{piece.title}}</h3>
+            </div>
+          </div>
+        </div>
 </div>
      

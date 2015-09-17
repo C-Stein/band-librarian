@@ -5,13 +5,6 @@ app.controller("SearchCtrl", ["$scope", "$firebaseArray",
     var ref = new Firebase("https://band-library.firebaseio.com/");
     $scope.searchCategories = "";      
     $scope.pieces = new $firebaseArray(ref.child('pieces')); 
-    $scope.attributes = {
-      "lyrical": false,
-      "hasSolos": false,
-      "technical": false,
-      "largePercussion": false,
-      "smallPercussion": false
-    };
     $scope.filteredPieces = [];
 
 
@@ -20,11 +13,7 @@ app.controller("SearchCtrl", ["$scope", "$firebaseArray",
     $scope.searchPieces = function() {
       $scope.filteredPieces = [];
       for (var i = 0; i < $scope.pieces.length; i++) {
-        if ($scope.attributes.lyrical === $scope.pieces[i].attributes.lyrical
-          && $scope.attributes.hasSolos === $scope.pieces[i].attributes.hasSolos
-          && $scope.attributes.technical === $scope.pieces[i].attributes.technical
-          && $scope.attributes.largePercussion === $scope.pieces[i].attributes.largePercussion
-          && $scope.attributes.smallPercussion === $scope.pieces[i].attributes.smallPercussion) {
+        if ($scope.attributes.lyrical === $scope.pieces[i].attributes.lyrical && $scope.attributes.hasSolos === $scope.pieces[i].attributes.hasSolos && $scope.attributes.technical === $scope.pieces[i].attributes.technical && $scope.attributes.largePercussion === $scope.pieces[i].attributes.largePercussion && $scope.attributes.smallPercussion === $scope.pieces[i].attributes.smallPercussion) {
           $scope.filteredPieces.push($scope.pieces[i]);
         } 
       }

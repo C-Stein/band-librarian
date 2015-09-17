@@ -16,6 +16,9 @@ app.config(['$routeProvider',
       }).when ('/about', {
         templateUrl: 'partials/about.html',
         controller: 'AboutCtrl'
+      }).when ('/:pieceId', {
+        templateUrl: 'partials/detail.html',
+        controller: 'DetailCtrl'
       }).otherwise ({
         redirectTo: '/'
       });

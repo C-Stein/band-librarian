@@ -1,25 +1,24 @@
 <div class="search">  
   <h4>Search by different attributes:</h4>
-  <input type="checkbox" name="Attributes" value="lyrical" data-ng-model="attributes.lyrical"> Lyrical
-  <input type="checkbox" name="Attributes" value="hasSolos" data-ng-model="attributes.hasSolos"> hasSolos
-  <input type="checkbox" name="Attributes" value="technical" data-ng-model="attributes.technical"> technical
-  <input type="checkbox" name="Attributes" value="largePercussion" data-ng-model="attributes.largePercussion"> largePercussion
-  <input type="checkbox" name="Attributes" value="smallPercussion" data-ng-model="attributes.smallPercussion"> smallPercussion
+  <input type="checkbox" ng-model="attributes.lyrical"> Lyrical
+  <input type="checkbox" ng-model="attributes.hasSolos"> hasSolos
+  <input type="checkbox" ng-model="attributes.technical"> technical
+  <input type="checkbox" ng-model="attributes.largePercussion"> largePercussion
+  <input type="checkbox" ng-model="attributes.smallPercussion"> smallPercussion
   <input type="button" ng-click="searchPieces()" value="Search">
-
 </div>
 
 
 
 <div id="wrapper">
 <div id="columns">
-  <div class="piece" ng-repeat="piece in filteredPieces">
+  <div class="piece" ng-repeat="piece in pieces | searchAttributes:attributes">
 
     <div class="homeEntry">
       <h3>{{piece.title}}</h3>
       <h5>{{piece.composer}}</h5>
       Get this filter thing to work to show attributes
-    <div ng repeat= "attributes in piece | filter: title">
+      <div ng repeat= "attributes in piece | filter: title">
         <p>{{piece.attributes}}</p>
       </div>
     </div>

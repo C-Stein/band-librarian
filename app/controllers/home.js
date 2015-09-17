@@ -3,7 +3,7 @@ app.controller("HomeCtrl", ["$scope", "$firebaseArray", "$firebaseAuth", "uid",
   var ref = new Firebase("https://band-library.firebaseio.com/");
   var auth = $firebaseAuth(ref);
   var authData = ref.getAuth();
-  $scope.uid = authData.uid;
+  $scope._ = _;
 
   console.log("ref.getAuth()", ref.getAuth());
   console.log("ref", ref);
@@ -22,8 +22,7 @@ app.controller("HomeCtrl", ["$scope", "$firebaseArray", "$firebaseAuth", "uid",
     });    
   }
 
-  runPage();
-
+  $scope.uid = authData.uid;
 
   function runPage() {
     console.log($scope.uid);
@@ -32,6 +31,14 @@ app.controller("HomeCtrl", ["$scope", "$firebaseArray", "$firebaseAuth", "uid",
 
   }
 }]);
+
+
+
+ 
+
+
+
+
 
 
 
