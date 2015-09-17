@@ -3,3 +3,6 @@ bower_components
 .sass-cache
 styles
 report
+data
+files
+assets
