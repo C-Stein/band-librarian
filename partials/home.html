@@ -6,39 +6,38 @@
 <button ng-click="logout()" value="Logout">Logout</button>
 
 <!--                        -->
-  <script type="text/ng-template" id="group-template.html">
-    <div class="panel {{panelClass || 'panel-default'}}">
-      <div class="panel-heading">
-        <h4 class="panel-title" style="color:#fa39c3">
-          <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" accordion-transclude="heading"><span
-            ng-class="{'text-muted': isDisabled}">{{heading}}</span></a>
-        </h4>
-      </div>
-      <div class="panel-collapse collapse" collapse="!isOpen">
-        <div class="panel-body" style="text-align: right" ng-transclude></div>
-      </div>
+<script type="text/ng-template" id="group-template.html">
+  <div class="panel {{panelClass || 'panel-default'}}">
+    <div class="panel-heading">
+      <h4 class="panel-title" style="color:#fa39c3">
+        <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" accordion-transclude="heading"><span
+          ng-class="{'text-muted': isDisabled}">{{heading}}</span></a>
+      </h4>
     </div>
-  </script>
+    <div class="panel-collapse collapse" collapse="!isOpen">
+      <div class="panel-body" style="text-align: right" ng-transclude></div>
+    </div>
+  </div>
+</script>
 
  
 
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" ng-model="oneAtATime">
+<div class="checkbox">
+  <label>
+    <input type="checkbox" ng-model="oneAtATime">
       Open only one at a time
-    </label>
+  </label>
   </div>
   <accordion close-others="oneAtATime">
 
     <accordion-group heading="{{piece.title}} by {{piece.composer}}" ng-repeat="piece in pieces | filter: searchPieces | orderBy: 'title'">
       <p>Arranger: {{piece.arranger || "none"}}</p>
       <p>Publisher: {{piece.publisher || "not available"}}</p>
+      <button ng-click="edit(piece)" value="Edit">Edit</button>
     </accordion-group>
 
   </accordion>
-</div>
-  </body>
-</html>
+
 
 
 

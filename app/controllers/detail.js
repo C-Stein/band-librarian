@@ -9,19 +9,8 @@ app.controller("DetailCtrl", ["$scope", "$routeParams", "$firebaseArray",
 
     console.log("$scope.pieceId", $scope.pieceId);
 
-
-
-
-
-      $scope.selectedPiece = $scope.pieces.filter(function(song) {
-        return song.id === parseInt($scope.songId);
-      })[0];
-
       
       
 
   }
 ]);
-
-
-// var deleteHash = _.findKey(loadedSongs, {'title': deleteTitle});
