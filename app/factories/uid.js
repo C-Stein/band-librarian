@@ -17,4 +17,9 @@ app.factory("uid", function() {
   };
 });
 
-// *Set it as a dependency in a controller
+app.factory("Auth", ["$firebaseAuth",
+  function($firebaseAuth) {
+    var ref = new Firebase("https://band-library.firebaseio.com");
+    return $firebaseAuth(ref);
+  }
+]);
