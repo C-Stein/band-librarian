@@ -1,4 +1,4 @@
-var app = angular.module("BandLib", ['firebase', 'angular.filter', 'ngRoute']);
+var app = angular.module("BandLib", ['firebase', 'angular.filter', 'ngRoute', 'ui.bootstrap']);
 
 
 app.config(['$routeProvider',

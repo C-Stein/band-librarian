@@ -15,10 +15,10 @@ app.filter('searchAttributes', function() {
     console.log("attributes", attributes);
     return filtered;
     }
-  }
+  };
 });
 
 function containsObject(obj, list) {
- var res = _.find(list, function(val){ return _.isEqual(obj, val)});
+ var res = _.find(list, function(val){ return _.isEqual(obj, val);});
  return (_.isObject(res))? true:false;
 }
