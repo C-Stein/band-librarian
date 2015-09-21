@@ -1,5 +1,5 @@
-app.controller("DetailCtrl", ["$scope", "$routeParams", "$firebaseObject", "$firebase",
-  function($scope, $routeParams, $firebaseObject, $firebase) {
+app.controller("DetailCtrl", ["$scope", "$routeParams", "$firebaseObject", "$firebase", "$location",
+  function($scope, $routeParams, $firebaseObject, $firebase, $location) {
     $scope.selectedPiece = {};
     $scope.pieceId = $routeParams.pieceId;
     $scope._ = _;
@@ -19,6 +19,10 @@ app.controller("DetailCtrl", ["$scope", "$routeParams", "$firebaseObject", "$fir
     //     ref.key() === obj.$id;
     //     }
     //     }
+        }, function(error) {
+          alert("Please log in using Facebook, Twitter, or Github to edit pieces");
+          $location.url("/login");
+        
        });
      };
 

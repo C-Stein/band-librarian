@@ -31,10 +31,10 @@
   <accordion close-others="oneAtATime">
 
    <accordion-group heading="{{piece.title}} by {{piece.composer}}" ng-repeat="piece in pieces | filter: searchPieces | orderBy: 'title'">
-      <p><a href="/#/piece/{{piece.$id}}"> {{piece.title}} </a></p>
+      <p> {{piece.title}} </p>
       <p>Arranger: {{piece.arranger || "none"}}</p>
       <p>Publisher: {{piece.publisher || "not available"}}</p>
-      <button ng-click="edit(piece)" value="Edit">Edit</button>
+      <a href="/#/piece/{{piece.$id}}"><button ng-click="edit(piece)" value="Edit">Edit</button></a>
     </accordion-group>
 
   </accordion>
