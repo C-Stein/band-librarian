@@ -19,6 +19,9 @@ app.config(['$routeProvider',
             return Auth.$requireAuth();
           }]
         }
+      }).when ('/login', {
+        templateUrl: 'partials/auth.html',
+        controller: 'AuthCtrl'
       }).when ('/addPiece', {
         templateUrl: 'partials/addPiece.html',
         controller: 'addPieceCtrl',
@@ -43,10 +46,15 @@ app.config(['$routeProvider',
             return Auth.$requireAuth();
           }]
         }
-      }).when ('/login', {
-        templateUrl: 'partials/auth.html',
-        controller: 'AuthCtrl'
+      }).when ('/piece/:pieceId', {
+        templateUrl: 'partials/detail.html',
+        controller: 'DetailCtrl',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireAuth();
+          }]
+        }
       }).otherwise ({
-        redirectTo: '/login'
+        redirectTo: '/'
       });
 }]);

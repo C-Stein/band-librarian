@@ -22,6 +22,8 @@ $scope.pieces = new $firebaseArray(ref.child('pieces'));
 
   $scope.edit = function(piece) {
     //open edit modal
+    var editHash = piece.$id;
+    console.log(piece.$id);
 
     //populate fields with current information
 
