@@ -17,5 +17,14 @@
       <input type="checkbox" name="Attributes" value="largePercussion" ng-model="selectedPiece.largePercussion"> Large Percussion Section Needed
       <br>
       <input type="checkbox" name="Attributes" value="smallPercussion" ng-model="selectedPiece.smallPercussion"> Small/ No Percussion Section Needed
+      <br>
+      <p>Advice: </p>
+      <br>
+      <div class="form-group">
+        <label for="Advice">Advice:</label>
+        <textarea class="form-control" rows="5" id="Advice" ng-model="advice" placeholder="Enter Useful Advice Here"></textarea>
+        <input type="button" ng-click="addAdvice(selectedPiece)"  value="Add Advice">
+      </div>
+
   </div>
 </section>
