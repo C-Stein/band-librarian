@@ -19,6 +19,9 @@
       <input type="checkbox" name="Attributes" value="smallPercussion" ng-model="selectedPiece.smallPercussion"> Small/ No Percussion Section Needed
       <br>
       <h2>Advice: </h2>
+      <div ng-repeat="advice in adviceList">
+        <p>{{advice.content}}</p>
+      </div>
       <br>
       <div class="form-group">
         <label for="Advice"> Add Advice:</label>

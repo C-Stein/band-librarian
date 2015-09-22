@@ -4,10 +4,18 @@ app.controller("DetailCtrl", ["$scope", "$routeParams", "$firebaseArray", "$fire
     $scope.pieceId = $routeParams.pieceId;
     $scope._ = _;
     $scope.advice = "";
-    var uidRef = new Firebase ("https://band-library.firebaseio.com");
-
+    $scope.adviceList = {};
     var ref = new Firebase("https://band-library.firebaseio.com/pieces/" + $scope.pieceId );
     $scope.selectedPiece = $firebaseObject(ref);
+
+    var fullRef = new Firebase ("https://band-library.firebaseio.com");
+    fullRef.child('comments').orderByChild('piece').equalTo($scope.pieceId).on("value", function(snapshot) {
+      $scope.adviceList = snapshot.val();
+      console.log("$scope.adviceList", $scope.adviceList);
+    });
+
+    //myFirebaseRef.child('songs').orderByChild("uid").equalTo(currentUser).on("value", function(snapshot) {
+
 
     console.log("$scope.pieceId", $scope.pieceId);
     console.log("$scope.selectedPiece", $scope.selectedPiece);
@@ -20,6 +28,8 @@ app.controller("DetailCtrl", ["$scope", "$routeParams", "$firebaseArray", "$fire
           $location.url("/login");
        });
     };
+
+    //why is the factory not working?!?!?!
     $scope.uid =  ref.getAuth().uid;
     console.log("$scope.uid", $scope.uid);
 
@@ -28,7 +38,6 @@ app.controller("DetailCtrl", ["$scope", "$routeParams", "$firebaseArray", "$fire
       piece: $scope.selectedPiece.$id,
       author: $scope.uid
     };
-
 
     $scope.addAdvice = function(comment) {
       console.log("comment", comment);
@@ -43,9 +52,7 @@ app.controller("DetailCtrl", ["$scope", "$routeParams", "$firebaseArray", "$fire
           root.child("/pieces/" + comment.piece + "/comments/" + name).set(true);
           root.child("/users/" + comment.author + "/comments/" + name).set(true);
         }
-      } );
-
-
+      });
     };
 
       
