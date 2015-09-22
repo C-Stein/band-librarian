@@ -34,6 +34,7 @@
       <p> {{piece.title}} </p>
       <p>Arranger: {{piece.arranger || "none"}}</p>
       <p>Publisher: {{piece.publisher || "not available"}}</p>
+      <p>Grade: {{piece.grade}} </p>
       <a href="/#/piece/{{piece.$id}}"><button ng-click="edit(piece)" value="Edit">Edit</button></a>
     </accordion-group>
 
