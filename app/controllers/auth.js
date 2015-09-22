@@ -11,8 +11,6 @@ app.controller("AuthCtrl", ["$scope", "$firebaseAuth", "uid",
   console.log("firebaseAuth(ref)", $firebaseAuth(ref));
 
 
-  var alertBox = $('#alert');
-
   function routeTo(route) {
     window.location.href = '#/' + route;
   }
@@ -27,7 +25,7 @@ app.controller("AuthCtrl", ["$scope", "$firebaseAuth", "uid",
         deferred.reject(err);
       }
       if (user) {
-                deferred.resolve(user);
+        deferred.resolve(user);
       }
     });
 
@@ -78,6 +76,9 @@ app.controller("AuthCtrl", ["$scope", "$firebaseAuth", "uid",
   function handleAuthResponse(promise, route) {
     $.when(promise)
       .then(function (authData) {
+        console.log(authData.uid);
+        uid.addUid(authData.uid);
+        console.log("getter", uid.getUid());
         routeTo(route);
       }, function (err) {
           console.log(err);
@@ -96,5 +97,6 @@ app.controller("AuthCtrl", ["$scope", "$firebaseAuth", "uid",
   $scope.loginAnon = function() {
     handleAuthResponse(authAnonymously(), '/');
   };
+
 
 }]);

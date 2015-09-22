@@ -1,30 +1,52 @@
-app.controller("DetailCtrl", ["$scope", "$routeParams", "$firebaseObject", "$firebase", "$location",
-  function($scope, $routeParams, $firebaseObject, $firebase, $location) {
+app.controller("DetailCtrl", ["$scope", "$routeParams", "$firebaseArray", "$firebaseObject", "$firebase", "$location", "uid",
+  function($scope, $routeParams, $firebaseArray, $firebaseObject, $firebase, $location, uid) {
     $scope.selectedPiece = {};
     $scope.pieceId = $routeParams.pieceId;
     $scope._ = _;
-
+    $scope.advice = "";
+    var uidRef = new Firebase ("https://band-library.firebaseio.com");
 
     var ref = new Firebase("https://band-library.firebaseio.com/pieces/" + $scope.pieceId );
     $scope.selectedPiece = $firebaseObject(ref);
 
-
-
     console.log("$scope.pieceId", $scope.pieceId);
     console.log("$scope.selectedPiece", $scope.selectedPiece);
 
-     $scope.submit = function(obj) {
+    $scope.submit = function(obj) {
        obj.$save().then(function(ref) {
-        console.log("Saved??");
-    //     ref.key() === obj.$id;
-    //     }
-    //     }
+        console.log("Saved!");
         }, function(error) {
           alert("Please log in using Facebook, Twitter, or Github to edit pieces");
           $location.url("/login");
-        
        });
-     };
+    };
+    $scope.uid =  ref.getAuth().uid;
+    console.log("$scope.uid", $scope.uid);
+
+    $scope.adviceObj = {
+      content: "",
+      piece: $scope.selectedPiece.$id,
+      author: $scope.uid
+    };
+
+
+    $scope.addAdvice = function(comment) {
+      console.log("comment", comment);
+      var root = new Firebase ("https://band-library.firebaseio.com");
+      var id = root.child("/comments").push();
+      id.set(comment, function(err) {
+        if (err) {
+          console.log(err);
+        } else {
+          var name = id.key();
+          console.log("name", name);
+          root.child("/pieces/" + comment.piece + "/comments/" + name).set(true);
+          root.child("/users/" + comment.author + "/comments/" + name).set(true);
+        }
+      } );
+
+
+    };
 
       
       
@@ -32,10 +54,3 @@ app.controller("DetailCtrl", ["$scope", "$routeParams", "$firebaseObject", "$fir
   }
 ]);
 
-// var obj = $firebaseObject(ref); (selected piece)
-// obj.foo = "bar";
-// obj.$save().then(function(ref) {
-//   ref.key() === obj.$id; // true
-// }, function(error) {
-//   console.log("Error:", error);
-// });
