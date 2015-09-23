@@ -19,9 +19,9 @@
       <input type="checkbox" name="Attributes" value="smallPercussion" ng-model="selectedPiece.smallPercussion"> Small/ No Percussion Section Needed
       <br>
       <h2>Advice: </h2>
-      <div ng-repeat="advice in adviceList" class="adviceEntry">
+      <div ng-repeat="advice in adviceList | orderBy:'-rating':reverse " class="adviceEntry">
         <p>{{advice.contents}}</p>
-        <p>{{comment.rating}}</p>
+        <!-- <p>{{comment.rating}}</p> -->
         <p>{{advice.rating}} </p>
         <p>people found this advice helpful</p>
         <input type="button" ng-Click="vote(advice)" value="+1 Good Advice!">
