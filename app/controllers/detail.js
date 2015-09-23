@@ -65,7 +65,8 @@ app.controller("DetailCtrl", ["$scope", "$routeParams", "$firebaseArray", "$fire
           console.log(comment.rating);
           // updateRating();
         } else {
-          upVoteUsers.$add({uid: $scope.uid}).then(function(ref) {
+          upVoteUsers.$add($scope.uid).then(function(ref) {
+            comments[comment.$id].rating += 1;
             updateRating();
             console.log("$scope.uid", $scope.uid);
             console.log("added?", ref.key());
@@ -73,7 +74,6 @@ app.controller("DetailCtrl", ["$scope", "$routeParams", "$firebaseArray", "$fire
 
             console.log("old rating", comment.rating);
            
-            comments[comment.$id].rating += 1;
             console.log("new rating", comment.rating);
         }
         console.log("upVoteUsers", upVoteUsers);
