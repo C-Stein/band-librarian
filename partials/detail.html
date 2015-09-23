@@ -22,6 +22,7 @@
       <div ng-repeat="advice in adviceList" class="adviceEntry">
         <p>{{advice.contents}}</p>
         <p>{{comment.rating}}</p>
+        <p>{{advice.rating}} </p>
         <p>people found this advice helpful</p>
         <input type="button" ng-Click="vote(advice)" value="+1 Good Advice!">
       </div>

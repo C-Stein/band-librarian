@@ -67,20 +67,16 @@ app.controller("DetailCtrl", ["$scope", "$routeParams", "$firebaseArray", "$fire
         } else {
           console.log("following 'else'", $scope.uid);
           upVoteUsers.$add($scope.uid);
-            // comment.rating = upVoteUsers.length;
             console.log("old rating", comment.rating);
            
-            comment.rating += 1;
+            comments[comment.$id].rating += 1;
             console.log("new rating", comment.rating);
             updateRating();
         }
-        console.log("upVoteUsers", upVoteUsers);
-
-        console.log("upVoteUsers.length", upVoteUsers.length);
       });
       function updateRating(){
         console.log("updateRating()", comment);
-        comments.$save(comment).then(function(ref){
+        comments.$save().then(function(ref){
           console.log("saved");
           console.log("comment.rating", comment.rating);
         }, function(error) {
