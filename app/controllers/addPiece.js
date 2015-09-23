@@ -1,5 +1,5 @@
-app.controller("addPieceCtrl", ["$scope", "$firebaseArray", 
-  function($scope, $firebaseArray) {
+app.controller("addPieceCtrl", ["$scope", "$firebaseArray", "$location",
+  function($scope, $firebaseArray, $location) {
     var ref = new Firebase("https://band-library.firebaseio.com/pieces");
 
     $scope.pieces = $firebaseArray(ref);
@@ -32,11 +32,17 @@ $scope.attribute = {
         "largePercussion": $scope.newPiece.largePercussion || false,
         "smallPercussion": $scope.newPiece.smallPercussion || false,
         "uid": $scope.uid
-    });
-    console.log($scope.newPiece);
+      }).then(function(ref){
+      console.log($scope.newPiece);
+      }, function(error){
+        alert("Please log in using Facebook, Twitter, or Github to add pieces");
+        $location.url("/login");
+        });
     $scope.newPiece = {"":""};
    };
-    
 
    }
 ]);
+
+
+
