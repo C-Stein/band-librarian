@@ -56,23 +56,29 @@ app.controller("DetailCtrl", ["$scope", "$routeParams", "$firebaseArray", "$fire
     };
 
     $scope.vote = function(comment) {
-      console.log("comment", comment);
-      console.log("comment.$id", comment.$id);
-      var upVoteUsers = $firebaseArray(fullRef.child('comments/' + comment.$id + "/upVoteUsers"));
+      console.log(comment.$id);
+      var upVoteUsers = $firebaseArray(fullRef.child('/comments/' + comment.$id + '/upVoteUsers'));
+      console.log(upVoteUsers);
       upVoteUsers.$loaded().then(function(){
         if(_.find(upVoteUsers, '$value', $scope.uid)) {
           console.log("user has already voted up");
           console.log(comment.rating);
           // updateRating();
         } else {
-          console.log("following 'else'", $scope.uid);
-          upVoteUsers.$add($scope.uid);
+          upVoteUsers.$add({uid: $scope.uid}).then(function(ref) {
+            updateRating();
+            console.log("$scope.uid", $scope.uid);
+            console.log("added?", ref.key());
+          });
+
             console.log("old rating", comment.rating);
            
             comments[comment.$id].rating += 1;
             console.log("new rating", comment.rating);
-            updateRating();
         }
+        console.log("upVoteUsers", upVoteUsers);
+
+        console.log("upVoteUsers.length", upVoteUsers.length);
       });
       function updateRating(){
         console.log("updateRating()", comment);
