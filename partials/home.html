@@ -5,6 +5,10 @@
 
 <button ng-click="logout()" value="Logout">Logout</button>
 
+<div ng-hide="notLoaded">
+  <p>Please wait while we scurry around and find your library</p>
+</div>
+
 <!--                        -->
 <script type="text/ng-template" id="group-template.html">
   <div class="panel {{panelClass || 'panel-default'}}">
