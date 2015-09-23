@@ -19,13 +19,16 @@
       <input type="checkbox" name="Attributes" value="smallPercussion" ng-model="selectedPiece.smallPercussion"> Small/ No Percussion Section Needed
       <br>
       <h2>Advice: </h2>
-      <div ng-repeat="advice in adviceList">
-        <p>{{advice.content}}</p>
+      <div ng-repeat="advice in adviceList" class="adviceEntry">
+        <p>{{advice.contents}}</p>
+        <p>{{comment.rating}}</p>
+        <p>people found this advice helpful</p>
+        <input type="button" ng-Click="vote(advice)" value="+1 Good Advice!">
       </div>
       <br>
       <div class="form-group">
         <label for="Advice"> Add Advice:</label>
-        <textarea class="form-control" rows="5" id="Advice" ng-model="adviceObj.content" placeholder="Enter Useful Advice Here"></textarea>
+        <textarea class="form-control" rows="5" id="Advice" ng-model="adviceObj.contents" placeholder="Enter Useful Advice Here"></textarea>
         <input type="button" ng-click="addAdvice(adviceObj)"  value="Add Advice">
       </div>
 

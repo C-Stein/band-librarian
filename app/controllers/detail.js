@@ -4,18 +4,16 @@ app.controller("DetailCtrl", ["$scope", "$routeParams", "$firebaseArray", "$fire
     $scope.pieceId = $routeParams.pieceId;
     $scope._ = _;
     $scope.advice = "";
-    $scope.adviceList = {};
+    // $scope.adviceList = {};
     var ref = new Firebase("https://band-library.firebaseio.com/pieces/" + $scope.pieceId );
     $scope.selectedPiece = $firebaseObject(ref);
+    //$scope.voters = 0;
 
     var fullRef = new Firebase ("https://band-library.firebaseio.com");
-    fullRef.child('comments').orderByChild('piece').equalTo($scope.pieceId).on("value", function(snapshot) {
-      $scope.adviceList = snapshot.val();
-      console.log("$scope.adviceList", $scope.adviceList);
-    });
 
-    //myFirebaseRef.child('songs').orderByChild("uid").equalTo(currentUser).on("value", function(snapshot) {
+    $scope.adviceList = $firebaseArray(fullRef.child('comments').orderByChild('piece').equalTo($scope.pieceId));
 
+    var comments = $firebaseObject(fullRef.child('comments'));
 
     console.log("$scope.pieceId", $scope.pieceId);
     console.log("$scope.selectedPiece", $scope.selectedPiece);
@@ -34,9 +32,10 @@ app.controller("DetailCtrl", ["$scope", "$routeParams", "$firebaseArray", "$fire
     console.log("$scope.uid", $scope.uid);
 
     $scope.adviceObj = {
-      content: "",
+      contents: "",
       piece: $scope.selectedPiece.$id,
-      author: $scope.uid
+      author: $scope.uid,
+      rating: 0
     };
 
     $scope.addAdvice = function(comment) {
@@ -53,10 +52,43 @@ app.controller("DetailCtrl", ["$scope", "$routeParams", "$firebaseArray", "$fire
           root.child("/users/" + comment.author + "/comments/" + name).set(true);
         }
       });
+     $scope.adviceObj.contents = "";
     };
 
-      
-      
+    $scope.vote = function(comment) {
+      console.log("comment", comment);
+      console.log("comment.$id", comment.$id);
+      var upVoteUsers = $firebaseArray(fullRef.child('comments/' + comment.$id + "/upVoteUsers"));
+      upVoteUsers.$loaded().then(function(){
+        if(_.find(upVoteUsers, '$value', $scope.uid)) {
+          console.log("user has already voted up");
+          console.log(comment.rating);
+          // updateRating();
+        } else {
+          console.log("following 'else'", $scope.uid);
+          upVoteUsers.$add($scope.uid);
+            // comment.rating = upVoteUsers.length;
+            console.log("old rating", comment.rating);
+           
+            comment.rating += 1;
+            console.log("new rating", comment.rating);
+            updateRating();
+        }
+        console.log("upVoteUsers", upVoteUsers);
+
+        console.log("upVoteUsers.length", upVoteUsers.length);
+      });
+      function updateRating(){
+        console.log("updateRating()", comment);
+        comments.$save(comment).then(function(ref){
+          console.log("saved");
+          console.log("comment.rating", comment.rating);
+        }, function(error) {
+          console.log("error", error);
+        });
+      }
+
+    };    
 
   }
 ]);
