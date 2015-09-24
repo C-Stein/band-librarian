@@ -9,40 +9,6 @@
   <p>Please wait while we scurry around and find your library</p>
 </div>
 
-<!--                        -->
-// <script type="text/ng-template" id="group-template.html">
-//   <div class="panel {{panelClass || 'panel-default'}}">
-//     <div class="panel-heading">
-//       <h4 class="panel-title" style="color:#fa39c3">
-//         <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" accordion-transclude="heading"><span
-//           ng-class="{'text-muted': isDisabled}">{{heading}}</span></a>
-//       </h4>
-//     </div>
-//     <div class="panel-collapse collapse" collapse="!isOpen">
-//       <div class="panel-body" style="text-align: right" ng-transclude></div>
-//     </div>
-//   </div>
-// </script>
-
- 
-
-<!-- <div class="checkbox">
-  <label>
-    <input type="checkbox" ng-model="oneAtATime">
-      Open only one at a time
-  </label>
-  </div> -->
-  <!-- <accordion close-others="oneAtATime">
-
-   <accordion-group heading="{{piece.title}} by {{piece.composer}}" ng-repeat="piece in pieces | filter: searchPieces | orderBy: 'title'">
-      <p> {{piece.title}} </p>
-      <p>Arranger: {{piece.arranger || "none"}}</p>
-      <p>Publisher: {{piece.publisher || "not available"}}</p>
-      <p>Grade: {{piece.grade}} </p>
-      <a href="/#/piece/{{piece.$id}}"><button ng-click="edit(piece)" value="Edit">Edit</button></a>
-    </accordion-group>
-
-  </accordion> -->
   <div ng-repeat="piece in pieces | filter: searchPieces | orderBy: 'title'">
 
     <div class="homeEntry">
