@@ -29,7 +29,6 @@ app.controller("FullViewCtrl", ["$scope", "$routeParams", "$firebaseArray", "$fi
         if(_.find(upVoteUsers, '$value', $scope.uid)) {
           console.log("user has already voted up");
           console.log(comment.rating);
-          // updateRating();
         } else {
           upVoteUsers.$add($scope.uid).then(function(ref) {
             comments[comment.$id].rating += 1;
@@ -37,14 +36,7 @@ app.controller("FullViewCtrl", ["$scope", "$routeParams", "$firebaseArray", "$fi
             console.log("$scope.uid", $scope.uid);
             console.log("added?", ref.key());
           });
-
-            console.log("old rating", comment.rating);
-           
-            console.log("new rating", comment.rating);
         }
-        console.log("upVoteUsers", upVoteUsers);
-
-        console.log("upVoteUsers.length", upVoteUsers.length);
       });
       function updateRating(){
         console.log("updateRating()", comment);

@@ -47,15 +47,6 @@ app.controller("AuthCtrl", ["$scope", "$firebaseAuth", "uid",
     return deferred.promise();
   }
 
-    // Create a user and then login in
-    // returns a promise
-    // function createUserAndLogin(userObj) {
-    //     return createUser(userObj)
-    //         .then(function () {
-    //         return authWithPassword(userObj);
-    //     });
-    // }
-
     // authenticate anonymously
   function authAnonymously() {
     var deferred = $.Deferred();
