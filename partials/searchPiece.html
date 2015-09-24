@@ -1,10 +1,10 @@
 <div class="search">  
   <h4>Search by different attributes:</h4>
   <input type="checkbox" ng-model="attributes.lyrical"> Lyrical
-  <input type="checkbox" ng-model="attributes.hasSolos"> hasSolos
-  <input type="checkbox" ng-model="attributes.technical"> technical
-  <input type="checkbox" ng-model="attributes.largePercussion"> largePercussion
-  <input type="checkbox" ng-model="attributes.smallPercussion"> smallPercussion
+  <input type="checkbox" ng-model="attributes.hasSolos"> Has Solos
+  <input type="checkbox" ng-model="attributes.technical"> Technical
+  <input type="checkbox" ng-model="attributes.largePercussion"> Large Percussion
+  <input type="checkbox" ng-model="attributes.smallPercussion"> Little or No Percussion
   <!-- <input type="button" ng-click="searchPieces()" value="Search"> -->
 </div>
 <div>
@@ -16,8 +16,25 @@
     <option value=4>4</option>
     <option value=5>5</option>
     <option value=6>6</option>
-    <option value="mw">Master-work</option>
+    <option value="Master-work">Master-work</option>
   </select>
+</div>
+
+<div class="search">  
+  <h4>Search by Title</h4>
+  <input type="text" ng-model="search.title" placeholder="Search here" id="searchBox"/>
+</div>
+<div class="search">  
+  <h4>Search by Composer</h4>
+  <input type="text" ng-model="search.composer" placeholder="Search here" id="searchBox"/>
+</div>
+<div class="search">  
+  <h4>Search by Publisher</h4>
+  <input type="text" ng-model="search.publisher" placeholder="Search here" id="searchBox"/>
+</div>
+<div class="search">  
+  <h4>Search by Arranger</h4>
+  <input type="text" ng-model="search.arranger" placeholder="Search here" id="searchBox"/>
 </div>
 
 
@@ -26,16 +43,28 @@
 <div id="columns">
   <div class="piece" ng-repeat="piece in pieces | filter: search | searchAttributes:attributes ">
 
-  <!-- s -->
-
     <div class="homeEntry">
       <h3>{{piece.title}}</h3>
       <h4>{{piece.grade}}</h4>
       <h5>{{piece.composer}}</h5>
+      <a href="/#/edit/{{piece.$id}}"><button ng-click="edit(piece)" value="Edit">Edit</button></a>
+      <a href="/#/piece/{{piece.$id}}"><button ng-click="" value="Full View">Full View</button></a>
     </div>
 
   </div>
 </div>
 </div> 
+<!-- 
+ <accordion close-others="oneAtATime">
+
+   <accordion-group heading="{{piece.title}} by {{piece.composer}}" ng-repeat="piece in pieces | filter: search | searchAttributes:attributes ">
+      <p> {{piece.title}} </p>
+      <p>Arranger: {{piece.arranger || "none"}}</p>
+      <p>Publisher: {{piece.publisher || "not available"}}</p>
+      <p>Grade: {{piece.grade}} </p>
+      <a href="/#/piece/{{piece.$id}}"><button ng-click="" value="Edit">Edit</button></a>
+    </accordion-group>
+
+  </accordion> -->
 
 

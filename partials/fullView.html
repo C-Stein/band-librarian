@@ -1,1 +1,19 @@
 <h2>{{selectedPiece.title}}</h2>
+<p>by</p>
+<h3>{{selectedPiece.composer}}</h3>
+<p>Arranger: {{selectedPiece.arranger || "none"}}</p>
+<p>Publisher: {{selectedPiece.publisher || "not available"}}</p>
+<p>Grade: {{selectedPiece.grade}} </p>
+<p>Technical: {{selectedPiece.technical || "no info"}}</p>
+<p>Lyrical: {{selectedPiece.lyrical || "no info"}}</p>
+<p>Has Solos: {{selectedPiece.hasSolos || "no info"}}</p>
+<p>Requires a large percussion section: {{selectedPiece.largePercussion || "no info"}}</p>
+<p>Little or no percussion section required: {{selectedPiece.smallPercussion || "no info"}}</p>
+<a href="/#/edit/{{selectedPiece.$id}}"><button ng-click="edit(piece)" value="Edit">Edit</button></a>
+<h2>Advice: </h2>
+<div ng-repeat="advice in adviceList | orderBy:'-rating':reverse " class="adviceEntry">
+  <p>{{advice.contents}}</p>
+  <p>{{advice.rating}} </p>
+  <p>people found this advice helpful</p>
+  <input type="button" ng-Click="vote(advice)" value="+1 Good Advice!">
+</div>

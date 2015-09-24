@@ -27,18 +27,6 @@ $scope.notLoaded = false;
     routeTo('/login');
   };
 
-  // $scope.edit = function(piece) {
-  //   //open edit modal
-  //   var editHash = piece.$id;
-  //   console.log(piece.$id);
-
-  //   //populate fields with current information
-
-  //   //user updates information and clicks a button when finished
-
-  //   //updated object saved in firebase
-  // };
-
 }]);
 
 
