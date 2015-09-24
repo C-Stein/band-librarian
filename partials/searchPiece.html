@@ -1,40 +1,45 @@
-<div class="search">  
-  <h4>Search by different attributes:</h4>
+<h2 class="subTitle">Search for Pieces</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <h4>Grade of piece:</h4>
+      <select ng-model="search.grade">
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5</option>
+        <option value=6>6</option>
+        <option value="Master-work">Master-work</option>
+      </select>
+    </div>
+
+    <div class="searchBox col-md-2">  
+      <h4>Title</h4>
+      <input type="text" ng-model="search.title" placeholder="Search Title" id="searchBox"/>
+    </div>
+    <div class="searchBox col-md-2">  
+      <h4>Composer</h4>
+      <input type="text" ng-model="search.composer" placeholder="Search Composer" id="searchBox"/>
+    </div>
+    <div class="searchBox col-md-2">  
+      <h4>Publisher</h4>
+      <input type="text" ng-model="search.publisher" placeholder="Search Publisher" id="searchBox"/>
+    </div>
+    <div class="searchBox col-md-2">  
+      <h4>Arranger</h4>
+      <input type="text" ng-model="search.arranger" placeholder="Search Arranger" id="searchBox"/>
+    </div>
+  </div>
+</div>
+
+<div class="attributeList">  
+  <h4 class="inline">Searchable attributes: </h4>
   <input type="checkbox" ng-model="attributes.lyrical"> Lyrical
   <input type="checkbox" ng-model="attributes.hasSolos"> Has Solos
   <input type="checkbox" ng-model="attributes.technical"> Technical
   <input type="checkbox" ng-model="attributes.largePercussion"> Large Percussion
   <input type="checkbox" ng-model="attributes.smallPercussion"> Little or No Percussion
-  <!-- <input type="button" ng-click="searchPieces()" value="Search"> -->
-</div>
-<div>
-  <h4>Grade of piece:</h4>
-  <select ng-model="search.grade">
-    <option value=1>1</option>
-    <option value=2>2</option>
-    <option value=3>3</option>
-    <option value=4>4</option>
-    <option value=5>5</option>
-    <option value=6>6</option>
-    <option value="Master-work">Master-work</option>
-  </select>
-</div>
-
-<div class="search">  
-  <h4>Search by Title</h4>
-  <input type="text" ng-model="search.title" placeholder="Search here" id="searchBox"/>
-</div>
-<div class="search">  
-  <h4>Search by Composer</h4>
-  <input type="text" ng-model="search.composer" placeholder="Search here" id="searchBox"/>
-</div>
-<div class="search">  
-  <h4>Search by Publisher</h4>
-  <input type="text" ng-model="search.publisher" placeholder="Search here" id="searchBox"/>
-</div>
-<div class="search">  
-  <h4>Search by Arranger</h4>
-  <input type="text" ng-model="search.arranger" placeholder="Search here" id="searchBox"/>
 </div>
 
 
