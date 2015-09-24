@@ -4,41 +4,35 @@
     <h2  class="inline">Edit {{selectedPiece.title}} </h2>
     <a href="/#/piece/{{selectedPiece.$id}}"><button value="Full View">Full View</button></a>
   </div>
-  <div class="container">
-    <div class="row">
-
-      <input type="text" ng-model="selectedPiece.title" placeholder="title" class="col-md-2">
-      <input type="text" ng-model="selectedPiece.composer" placeholder="composer" class="col-md-2">
-      <input type="text" ng-model="selectedPiece.publisher" placeholder="publisher" class="col-md-2">
-      <input type="text" ng-model="selectedPiece.arranger" placeholder="arranger" class="col-md-2">
-      <input type="text" ng-model="selectedPiece.grade" placeholder="grade" class="col-md-2">
-      <button ng-click="submit(selectedPiece)" value="Submit Changes" class="col-md-2">Submit Changes</button>
+  <div class="row">
+    <div class=" addPieceInput">
+      <div class="col-sm-3 col-sm-offset-2">
+        <input type="text" class="editBox" ng-model="selectedPiece.title" placeholder="Title"></input><br>
+        <input type="text" class="editBox" ng-model="selectedPiece.composer" placeholder="Composer"></input><br>
+        <input type="text" class="editBox" ng-model="selectedPiece.arranger" placeholder="Arranger"></input><br>
+        <input type="text" class="editBox" ng-model="selectedPiece.year" placeholder="Year"></input><br>
+        <input type="text" class="editBox" ng-model="selectedPiece.publisher" placeholder="Publisher"></input><br>
+        <input type="text" class="editBox" ng-model="selectedPiece.grade" placeholder="Grade"></input><br>
+        <button id="submit" class="btn btn-default btn-lg" ng-click="addPiece()">Submit</button>
+      </div>
+      <div class="col-sm-5 col-sm-offset-1 addAttributes">
+        <input type="checkbox" name="Attributes" value="technical" ng-model="selectedPiece.technical"> Technical
+        <br>
+        <input type="checkbox" name="Attributes" value="lyrical" ng-model="selectedPiece.lyrical"> Lyrical
+        <br>
+        <input type="checkbox" name="Attributes" value="hasSolos" ng-model="selectedPiece.hasSolos"> Has Solos
+        <br>
+        <input type="checkbox" name="Attributes" value="largePercussion" ng-model="selectedPiece.largePercussion"> Large Percussion Section Needed
+        <br>
+        <input type="checkbox" name="Attributes" value="smallPercussion" ng-model="selectedPiece.smallPercussion"> Small/ No Percussion Section Needed
+      </div>
     </div>
   </div>
-      <br>
-      <input type="checkbox" name="Attributes" value="technical" ng-model="selectedPiece.technical"> Technical
-      <br>
-      <input type="checkbox" name="Attributes" value="lyrical" ng-model="selectedPiece.lyrical"> Lyrical
-      <br>
-      <input type="checkbox" name="Attributes" value="hasSolos" ng-model="selectedPiece.hasSolos"> Has Solos
-      <br>
-      <input type="checkbox" name="Attributes" value="largePercussion" ng-model="selectedPiece.largePercussion"> Large Percussion Section Needed
-      <br>
-      <input type="checkbox" name="Attributes" value="smallPercussion" ng-model="selectedPiece.smallPercussion"> Small/ No Percussion Section Needed
-      <br>
-    <h2>Advice: </h2>
-    <div ng-repeat="advice in adviceList | orderBy:'-rating':reverse " class="adviceEntry">
-      <p>{{advice.contents}}</p>
-      <p>{{advice.rating}} </p>
-      <p>people found this advice helpful</p>
-      <input type="button" ng-Click="vote(advice)" value="+1 Good Advice!">
-    </div>
-    <br>
-    <div class="form-group">
-      <label for="Advice"> Add Advice:</label>
-      <textarea class="form-control" rows="5" id="Advice" ng-model="adviceObj.contents" placeholder="Enter Useful Advice Here"></textarea>
-      <input type="button" ng-click="addAdvice(adviceObj)"  value="Add Advice">
-    </div>
+  <div class="form-group addAdvice">
+    <label for="Advice"> Add Advice:</label>
+    <textarea class="form-control" rows="5" id="Advice" ng-model="adviceObj.contents" placeholder="Enter Useful Advice Here. Check out the full view to see what advice other people have left."></textarea>
+    <input type="button" ng-click="addAdvice(adviceObj)"  value="Add Advice">
+  </div>
 
 </div>
 
