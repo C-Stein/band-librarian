@@ -46,9 +46,17 @@ app.config(['$routeProvider',
             return Auth.$requireAuth();
           }]
         }
+      }).when ('/edit/:pieceId', {
+        templateUrl: 'partials/edit.html',
+        controller: 'EditCtrl',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireAuth();
+          }]
+        }
       }).when ('/piece/:pieceId', {
-        templateUrl: 'partials/detail.html',
-        controller: 'DetailCtrl',
+        templateUrl: 'partials/fullView.html',
+        controller: 'FullViewCtrl',
         resolve: {
           "currentAuth": ["Auth", function(Auth) {
             return Auth.$requireAuth();

@@ -1,6 +1,7 @@
 <section>
   <div>
       <h1 >Edit Piece</h1>
+      <a href="/#/piece/{{selectedPiece.$id}}"><button ng-click="" value="Full View">Full View</button></a>
       <input type="text" ng-model="selectedPiece.title" placeholder="title">
       <input type="text" ng-model="selectedPiece.composer" placeholder="composer">
       <input type="text" ng-model="selectedPiece.publisher" placeholder="publisher">
@@ -21,7 +22,6 @@
       <h2>Advice: </h2>
       <div ng-repeat="advice in adviceList | orderBy:'-rating':reverse " class="adviceEntry">
         <p>{{advice.contents}}</p>
-        <!-- <p>{{comment.rating}}</p> -->
         <p>{{advice.rating}} </p>
         <p>people found this advice helpful</p>
         <input type="button" ng-Click="vote(advice)" value="+1 Good Advice!">
