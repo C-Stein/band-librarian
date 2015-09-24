@@ -48,6 +48,16 @@ h1 {
   margin-top: 20px;
 }
 
+.loading {
+  font-size: 1.2em;
+  text-align: center;
+  margin: 0 25%;
+}
+
+.navMouse {
+  margin-top: -10px;
+}
+
 @import 'search';
 @import 'addPiece';
 @import 'edit';

@@ -1,11 +1,11 @@
+<div ng-hide="notLoaded" class="loading">
+  <p>Please wait while we scurry around and find your library</p>
+</div>
 <div class="search">  
   <h4>Search by Title, Composer, Arranger, or Publisher:</h4>
   <input type="text" ng-model="searchPieces" placeholder="Search here" id="searchBox"/>
 </div>
 
-<div ng-hide="notLoaded">
-  <p>Please wait while we scurry around and find your library</p>
-</div>
 
   <div ng-repeat="piece in pieces | filter: searchPieces | orderBy: 'title'">
 
