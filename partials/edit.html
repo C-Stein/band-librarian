@@ -2,7 +2,7 @@
 <div>
   <div class="subTitle">
     <h2  class="inline">Edit {{selectedPiece.title}} </h2>
-    <a href="/#/piece/{{selectedPiece.$id}}"><button value="Full View">Full View</button></a>
+    <a href="/#/piece/{{selectedPiece.$id}}"><button class ="btn btn-default btn-lg" value="Full View">Full View</button></a>
   </div>
   <div class="row">
     <div class=" addPieceInput">
@@ -31,6 +31,8 @@
   <div class="form-group addAdvice">
     <label for="Advice"> Add Advice:</label>
     <textarea class="form-control" rows="5" id="Advice" ng-model="adviceObj.contents" placeholder="Enter Useful Advice Here. Check out the full view to see what advice other people have left."></textarea>
+    <input type="text" ng-model="adviceObj.url" placeholder="related web link">
+    <input type="text" ng-model="adviceObj.linkText" placeholder="text for related link">
     <input type="button" ng-click="addAdvice(adviceObj)"  value="Add Advice">
   </div>
 

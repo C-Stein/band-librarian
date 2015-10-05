@@ -1,6 +1,6 @@
 <div class="subTitle">
   <h2 class="inline">{{selectedPiece.title}} by {{selectedPiece.composer}} </h2>
-  <a href="/#/edit/{{selectedPiece.$id}}"><button ng-click="edit(piece)" value="Edit">Edit</button></a>
+  <a href="/#/edit/{{selectedPiece.$id}}"><button class="btn btn-default"ng-click="edit(piece)" value="Edit">Edit</button></a>
 </div>
 <div class="container">
   <div class="row fullView">
@@ -21,6 +21,7 @@
 <h3 class="adviceLabel">Advice: </h3>
 <div ng-repeat="advice in adviceList | orderBy:'-rating':reverse " class="adviceEntry">
   <p>{{advice.contents}}</p>
+  <p><a href="{{advice.url}}">{{advice.linkText}}</a></p>
   <div>
     <p class="inline">{{advice.rating}} </p>
     <p class="inline">people found this advice helpful</p>

@@ -1,4 +1,4 @@
-app.controller("EditCtrl", ["$scope", "$routeParams", "$firebaseArray", "$firebaseObject", "$firebase", "$location", "uid",
+app.controller("EditCtrl", ["$scope", "$routeParams", "$firebaseArray", "$firebaseObject", "$firebase", "$location", "uid", 
   function($scope, $routeParams, $firebaseArray, $firebaseObject, $firebase, $location, uid) {
     $scope.selectedPiece = {};
     $scope.pieceId = $routeParams.pieceId;
@@ -49,7 +49,9 @@ app.controller("EditCtrl", ["$scope", "$routeParams", "$firebaseArray", "$fireba
         }
       });
      $scope.adviceObj.contents = "";
-    };   
+    };
+
+   
   }
 ]);
 
