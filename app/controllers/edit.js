@@ -49,6 +49,8 @@ app.controller("EditCtrl", ["$scope", "$routeParams", "$firebaseArray", "$fireba
         }
       });
      $scope.adviceObj.contents = "";
+     $scope.adviceObj.url = "";
+     $scope.adviceObj.linkText = "";
     };
 
    

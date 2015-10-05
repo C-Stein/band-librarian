@@ -65,6 +65,7 @@ h1 {
   border: 1px solid #aaa;
   border-radius: 5px;
   padding: 2px 10px;
+  background-color: $color-green-lighter;
     h3, h5 {
       display: inline;
     }
@@ -87,20 +88,24 @@ h1 {
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:    $color-blue-1-light;
 }
+
+::-webkit-textarea-placeholder { /* WebKit, Blink, Edge */
+    color:    orange;
+}
 // textarea::-webkit-input-placeholder {
 //   color:    $color-blue-1-light;
 // }
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    $color-blue-1-light;
-   opacity:  1;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    $color-blue-1-light;
-   opacity:  1;
-}
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    $color-blue-1-light;
-}
+// :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+//    color:    $color-blue-1-light;
+//    opacity:  1;
+// }
+// ::-moz-placeholder { Mozilla Firefox 19+
+//    color:    $color-blue-1-light;
+//    opacity:  1;
+// }
+// :-ms-input-placeholder { /* Internet Explorer 10-11 */
+//    color:    $color-blue-1-light;
+// }
 
 @import 'search';
 @import 'addPiece';
