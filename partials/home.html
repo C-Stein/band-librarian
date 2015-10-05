@@ -11,10 +11,10 @@
 
     <div class="homeEntry">
       <h3>{{piece.title}}</h3>
-      <h4>Grade {{piece.grade}}</h4>
-      <h5>{{piece.composer}}</h5>
-      <a href="/#/edit/{{piece.$id}}"><button ng-click="edit(piece)" value="Edit">Edit</button></a>
-      <a href="/#/piece/{{piece.$id}}"><button ng-click="" value="Full View">Full View</button></a>
+      <a href="/#/edit/{{piece.$id}}" class="editBtn"><input type="button" ng-click="edit(piece)" value="Edit"></a>
+      <a href="/#/piece/{{piece.$id}}" class="viewBtn"><input type="button" ng-click="" value="Full View"></a>
+      <h4>Composer {{piece.composer}}</h4>
+      <h4> Grade {{piece.grade}}</h4>
     </div>
   </div>
 

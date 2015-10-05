@@ -2,7 +2,7 @@
 <div>
   <div class="subTitle">
     <h2  class="inline">Edit {{selectedPiece.title}} </h2>
-    <a href="/#/piece/{{selectedPiece.$id}}"><button class ="btn btn-default btn-lg" value="Full View">Full View</button></a>
+    <a href="/#/piece/{{selectedPiece.$id}}"><input type="button" value="Full View"></a>
   </div>
   <div class="row">
     <div class=" addPieceInput">
@@ -13,7 +13,7 @@
         <input type="text" class="editBox" ng-model="selectedPiece.year" placeholder="Year"></input><br>
         <input type="text" class="editBox" ng-model="selectedPiece.publisher" placeholder="Publisher"></input><br>
         <input type="text" class="editBox" ng-model="selectedPiece.grade" placeholder="Grade"></input><br>
-        <button id="submit" class="btn btn-default btn-lg" ng-click="addPiece()">Submit</button>
+        <input type="button" id="submit" value="Submit" class="" ng-click="addPiece()">
       </div>
       <div class="col-sm-5 col-sm-offset-1 addAttributes">
         <input type="checkbox" name="Attributes" value="technical" ng-model="selectedPiece.technical"> Technical

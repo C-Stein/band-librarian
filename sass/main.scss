@@ -1,5 +1,42 @@
+$color-green-0: #519331;  // Main green color */
+$color-green-darker: #154000;
+$color-green-dark: #1A4F00;
+$color-green-light: #A8D791;
+$color-green-lighter: #D4EDC8;
+
+$color-blue-1-0: #323776;  // Main blue color (1) */
+$color-blue-1-darker: #030733;
+$color-blue-1-dark: #090D3F;
+$color-blue-1-light: #7C7FAC;
+$color-blue-1-lighter: #B9BBD5;
+
+$color-tan-2-0: #AA8C39;  // Main tan color (2) */
+$color-tan-2-darker: #4A3600;
+$color-tan-2-dark: #5B4300;
+$color-tan-2-light: #F9E3A7;
+$color-tan-2-lighter: #FFF4D7;
+
+$color-red-0: #9E3549; // Main red color */
+$color-red-darker: #45000D;
+$color-red-dark: #550011;
+$color-red-light: #E89CAB;
+$color-red-lighter: #F6D0D7;
+
+
+body {
+  background-color: $color-green-light;
+  background-image:
+  repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+  repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+  linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
+  linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+  background-size: 70px 120px;
+  color: $color-blue-1-darker;
+}
+
 h1 {
   text-align: center;
+  color: $color-blue-1-darker;
 }
 
 .menu {
@@ -15,22 +52,11 @@ h1 {
   margin: 10px 8%;
   border: 1px solid #aaa;
   border-radius: 5px;
-  padding: 2px 10px;
+  padding: 25px;
+  background-color: $color-green-lighter;
     h3, h5 {
       display: inline;
     }
-}
-
-.mouse {
-  position: absolute;
-  z-index: -1;
-  margin-left: 10%;
-}
-
-.reverseMouse {
-  position: absolute;
-  z-index: -1;
-  margin-left: 80%;
 }
 
 .adviceEntry {
@@ -58,8 +84,27 @@ h1 {
   margin-top: -10px;
 }
 
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    $color-blue-1-light;
+}
+// textarea::-webkit-input-placeholder {
+//   color:    $color-blue-1-light;
+// }
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    $color-blue-1-light;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    $color-blue-1-light;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    $color-blue-1-light;
+}
+
 @import 'search';
 @import 'addPiece';
 @import 'edit';
 @import 'fullView';
+@import 'buttons';
 

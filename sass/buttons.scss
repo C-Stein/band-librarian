@@ -1,0 +1,28 @@
+input[type=button] {
+  padding:5px;
+  background-color: white;
+  border: 2px solid $color-red-0;
+  color:#000;
+  border-radius: 10px;
+  text-decoration:none;
+}
+
+
+input[type=button]:hover {
+    padding:5px;
+  background-color: white;
+  border: 2px solid $color-red-0;
+  color:#000;
+  border-radius: 10px;
+  text-decoration:none;
+}
+
+input[type=button]:active {
+  padding:5px;
+  background-color: $color-blue-1-lighter;
+  border: 2px solid $color-red-0;
+  color:#000;
+  border-radius: 10px;
+  text-decoration:none;
+  transform: scale(1.5);
+}
