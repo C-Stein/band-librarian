@@ -1,0 +1,19 @@
+<h2 class="subTitle">Search for Pieces</h2>
+<div class="container">
+  <div class="row">
+
+    <div class="searchBox col-md-2">  
+      <h4>Advice</h4>
+      <input type="text" ng-model="search" placeholder="Search Advice" id="searchBox"/>
+    </div>
+  </div>
+<div ng-repeat="advice in adviceList | filter: search" class="adviceEntry">
+  <a href="/#/piece/{{advice.piece}}" class=""><input type="button" value="See Related Piece"></a>
+  <p>{{advice.contents}}</p>
+  <p><a href="{{advice.url}}">{{advice.linkText}}</a></p>
+  <div>
+    <p class="inline">{{advice.rating}} </p>
+    <p class="inline">people found this advice helpful</p>
+  </div>
+<!--   <input type="button" ng-Click="vote(advice)" value="+1 Good Advice!"> -->
+</div>

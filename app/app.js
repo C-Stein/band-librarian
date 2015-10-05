@@ -62,6 +62,14 @@ app.config(['$routeProvider',
             return Auth.$requireAuth();
           }]
         }
+      }).when ('/searchAdvice', {
+        templateUrl: 'partials/searchAdvice.html',
+        controller: 'AdviceCtrl',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireAuth();
+          }]
+        }
       }).otherwise ({
         redirectTo: '/'
       });
